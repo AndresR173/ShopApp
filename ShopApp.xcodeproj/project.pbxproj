@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		BA2076BC260F78FA00E790F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2076BB260F78FA00E790F8 /* AppDelegate.swift */; };
 		BA2076BE260F78FA00E790F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2076BD260F78FA00E790F8 /* SceneDelegate.swift */; };
-		BA2076C0260F78FA00E790F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2076BF260F78FA00E790F8 /* ViewController.swift */; };
-		BA2076C3260F78FA00E790F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2076C1260F78FA00E790F8 /* Main.storyboard */; };
 		BA2076C5260F78FD00E790F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2076C4260F78FD00E790F8 /* Assets.xcassets */; };
 		BA2076C8260F78FD00E790F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2076C6260F78FD00E790F8 /* LaunchScreen.storyboard */; };
 		BA2076D3260F78FD00E790F8 /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2076D2260F78FD00E790F8 /* SearchProductTests.swift */; };
@@ -28,6 +26,14 @@
 		BA207753260F84D900E790F8 /* item_response.json in Resources */ = {isa = PBXBuildFile; fileRef = BA207752260F84D900E790F8 /* item_response.json */; };
 		BA207765260F87E400E790F8 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207764260F87E400E790F8 /* ItemTests.swift */; };
 		BA207773260F89C600E790F8 /* SellerAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207772260F89C600E790F8 /* SellerAddress.swift */; };
+		BA20777D260F916300E790F8 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20777B260F916300E790F8 /* SearchProductViewController.swift */; };
+		BA20777E260F916300E790F8 /* SearchProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA20777C260F916300E790F8 /* SearchProductViewController.xib */; };
+		BA20778A260F91CA00E790F8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207789260F91CA00E790F8 /* Montserrat-Bold.ttf */; };
+		BA20778F260F91D800E790F8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA20778E260F91D800E790F8 /* Montserrat-Medium.ttf */; };
+		BA207794260F91E200E790F8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207793260F91E200E790F8 /* Montserrat-Regular.ttf */; };
+		BA207799260F91F100E790F8 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207798260F91F100E790F8 /* Montserrat-SemiBold.ttf */; };
+		BA20779F260F92AC00E790F8 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */; };
+		BA2077A7260F92FF00E790F8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +57,6 @@
 		BA2076B8260F78FA00E790F8 /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2076BB260F78FA00E790F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA2076BD260F78FA00E790F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA2076BF260F78FA00E790F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BA2076C2260F78FA00E790F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA2076C4260F78FD00E790F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA2076C7260F78FD00E790F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA2076C9260F78FD00E790F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 		BA207752260F84D900E790F8 /* item_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item_response.json; sourceTree = "<group>"; };
 		BA207764260F87E400E790F8 /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		BA207772260F89C600E790F8 /* SellerAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAddress.swift; sourceTree = "<group>"; };
+		BA20777B260F916300E790F8 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
+		BA20777C260F916300E790F8 /* SearchProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductViewController.xib; sourceTree = "<group>"; };
+		BA207789260F91CA00E790F8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		BA20778E260F91D800E790F8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		BA207793260F91E200E790F8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BA207798260F91F100E790F8 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +181,7 @@
 		BA2076F8260F799300E790F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BA2076BF260F78FA00E790F8 /* ViewController.swift */,
-				BA2076C1260F78FA00E790F8 /* Main.storyboard */,
+				BA20777A260F913A00E790F8 /* SearchProducts */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -208,6 +219,8 @@
 		BA207705260F79D500E790F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BA20779D260F929A00E790F8 /* Extensions */,
+				BA207788260F91C000E790F8 /* Fonts */,
 				BA207719260F7CF600E790F8 /* Constants.swift */,
 				BA20773F260F80B100E790F8 /* Enums.swift */,
 			);
@@ -237,6 +250,35 @@
 				BA207764260F87E400E790F8 /* ItemTests.swift */,
 			);
 			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		BA20777A260F913A00E790F8 /* SearchProducts */ = {
+			isa = PBXGroup;
+			children = (
+				BA20777B260F916300E790F8 /* SearchProductViewController.swift */,
+				BA20777C260F916300E790F8 /* SearchProductViewController.xib */,
+			);
+			path = SearchProducts;
+			sourceTree = "<group>";
+		};
+		BA207788260F91C000E790F8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA207798260F91F100E790F8 /* Montserrat-SemiBold.ttf */,
+				BA207793260F91E200E790F8 /* Montserrat-Regular.ttf */,
+				BA20778E260F91D800E790F8 /* Montserrat-Medium.ttf */,
+				BA207789260F91CA00E790F8 /* Montserrat-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BA20779D260F929A00E790F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */,
+				BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +385,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA207794260F91E200E790F8 /* Montserrat-Regular.ttf in Resources */,
+				BA20778A260F91CA00E790F8 /* Montserrat-Bold.ttf in Resources */,
+				BA20778F260F91D800E790F8 /* Montserrat-Medium.ttf in Resources */,
+				BA207799260F91F100E790F8 /* Montserrat-SemiBold.ttf in Resources */,
 				BA2076C8260F78FD00E790F8 /* LaunchScreen.storyboard in Resources */,
+				BA20777E260F916300E790F8 /* SearchProductViewController.xib in Resources */,
 				BA2076C5260F78FD00E790F8 /* Assets.xcassets in Resources */,
-				BA2076C3260F78FA00E790F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,17 +439,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA2076C0260F78FA00E790F8 /* ViewController.swift in Sources */,
 				BA207736260F7E6000E790F8 /* Item.swift in Sources */,
 				BA207731260F7E5500E790F8 /* Product.swift in Sources */,
 				BA20773B260F7FE100E790F8 /* Picture.swift in Sources */,
 				BA2076BC260F78FA00E790F8 /* AppDelegate.swift in Sources */,
 				BA2076BE260F78FA00E790F8 /* SceneDelegate.swift in Sources */,
 				BA207773260F89C600E790F8 /* SellerAddress.swift in Sources */,
+				BA20779F260F92AC00E790F8 /* UIFont+Extensions.swift in Sources */,
 				BA20771A260F7CF600E790F8 /* Constants.swift in Sources */,
 				BA207729260F7E2400E790F8 /* ItemsService.swift in Sources */,
 				BA207745260F83D500E790F8 /* SearchResponse.swift in Sources */,
 				BA20771F260F7DD500E790F8 /* ApiClient.swift in Sources */,
+				BA20777D260F916300E790F8 /* SearchProductViewController.swift in Sources */,
+				BA2077A7260F92FF00E790F8 /* UIView+Extensions.swift in Sources */,
 				BA207724260F7E1100E790F8 /* ProductsService.swift in Sources */,
 				BA207740260F80B100E790F8 /* Enums.swift in Sources */,
 			);
@@ -442,14 +490,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BA2076C1260F78FA00E790F8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA2076C2260F78FA00E790F8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BA2076C6260F78FD00E790F8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
