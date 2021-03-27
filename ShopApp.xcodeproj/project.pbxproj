@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,14 +26,20 @@
 		BA207753260F84D900E790F8 /* item_response.json in Resources */ = {isa = PBXBuildFile; fileRef = BA207752260F84D900E790F8 /* item_response.json */; };
 		BA207765260F87E400E790F8 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207764260F87E400E790F8 /* ItemTests.swift */; };
 		BA207773260F89C600E790F8 /* SellerAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207772260F89C600E790F8 /* SellerAddress.swift */; };
-		BA20777D260F916300E790F8 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20777B260F916300E790F8 /* SearchProductViewController.swift */; };
-		BA20777E260F916300E790F8 /* SearchProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA20777C260F916300E790F8 /* SearchProductViewController.xib */; };
+		BA20777D260F916300E790F8 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20777B260F916300E790F8 /* ProductsViewController.swift */; };
+		BA20777E260F916300E790F8 /* ProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA20777C260F916300E790F8 /* ProductsViewController.xib */; };
 		BA20778A260F91CA00E790F8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207789260F91CA00E790F8 /* Montserrat-Bold.ttf */; };
 		BA20778F260F91D800E790F8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA20778E260F91D800E790F8 /* Montserrat-Medium.ttf */; };
 		BA207794260F91E200E790F8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207793260F91E200E790F8 /* Montserrat-Regular.ttf */; };
 		BA207799260F91F100E790F8 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA207798260F91F100E790F8 /* Montserrat-SemiBold.ttf */; };
 		BA20779F260F92AC00E790F8 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */; };
 		BA2077A7260F92FF00E790F8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */; };
+		BA2077AD260F95C900E790F8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = BA2077AC260F95C900E790F8 /* SDWebImage */; };
+		BA2077B3260F95EC00E790F8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BA2077B2260F95EC00E790F8 /* Lottie */; };
+		BA2077B9260F968D00E790F8 /* searching.json in Resources */ = {isa = PBXBuildFile; fileRef = BA2077B8260F968D00E790F8 /* searching.json */; };
+		BA2077BE260F96FB00E790F8 /* emppty.json in Resources */ = {isa = PBXBuildFile; fileRef = BA2077BD260F96FB00E790F8 /* emppty.json */; };
+		BA2077C3260F976300E790F8 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2077C2260F976300E790F8 /* ProductsViewModel.swift */; };
+		BA2077D1260F9BEB00E790F8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2077D0260F9BEB00E790F8 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,14 +85,18 @@
 		BA207752260F84D900E790F8 /* item_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item_response.json; sourceTree = "<group>"; };
 		BA207764260F87E400E790F8 /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		BA207772260F89C600E790F8 /* SellerAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAddress.swift; sourceTree = "<group>"; };
-		BA20777B260F916300E790F8 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
-		BA20777C260F916300E790F8 /* SearchProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductViewController.xib; sourceTree = "<group>"; };
+		BA20777B260F916300E790F8 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		BA20777C260F916300E790F8 /* ProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsViewController.xib; sourceTree = "<group>"; };
 		BA207789260F91CA00E790F8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		BA20778E260F91D800E790F8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		BA207793260F91E200E790F8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		BA207798260F91F100E790F8 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		BA2077B8260F968D00E790F8 /* searching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searching.json; sourceTree = "<group>"; };
+		BA2077BD260F96FB00E790F8 /* emppty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emppty.json; sourceTree = "<group>"; };
+		BA2077C2260F976300E790F8 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		BA2077D0260F9BEB00E790F8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2077AD260F95C900E790F8 /* SDWebImage in Frameworks */,
+				BA2077B3260F95EC00E790F8 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +201,7 @@
 		BA2076FF260F79B300E790F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA2077B7260F967600E790F8 /* Animations */,
 				BA2076C4260F78FD00E790F8 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -230,6 +243,7 @@
 		BA207706260F7A9A00E790F8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BA2077C2260F976300E790F8 /* ProductsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -255,8 +269,8 @@
 		BA20777A260F913A00E790F8 /* SearchProducts */ = {
 			isa = PBXGroup;
 			children = (
-				BA20777B260F916300E790F8 /* SearchProductViewController.swift */,
-				BA20777C260F916300E790F8 /* SearchProductViewController.xib */,
+				BA20777B260F916300E790F8 /* ProductsViewController.swift */,
+				BA20777C260F916300E790F8 /* ProductsViewController.xib */,
 			);
 			path = SearchProducts;
 			sourceTree = "<group>";
@@ -277,8 +291,18 @@
 			children = (
 				BA20779E260F92AC00E790F8 /* UIFont+Extensions.swift */,
 				BA2077A6260F92FF00E790F8 /* UIView+Extensions.swift */,
+				BA2077D0260F9BEB00E790F8 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA2077B7260F967600E790F8 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				BA2077BD260F96FB00E790F8 /* emppty.json */,
+				BA2077B8260F968D00E790F8 /* searching.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +322,10 @@
 			dependencies = (
 			);
 			name = ShopApp;
+			packageProductDependencies = (
+				BA2077AC260F95C900E790F8 /* SDWebImage */,
+				BA2077B2260F95EC00E790F8 /* Lottie */,
+			);
 			productName = ShopApp;
 			productReference = BA2076B8260F78FA00E790F8 /* ShopApp.app */;
 			productType = "com.apple.product-type.application";
@@ -369,6 +397,10 @@
 				Base,
 			);
 			mainGroup = BA2076AF260F78FA00E790F8;
+			packageReferences = (
+				BA2077AB260F95C900E790F8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				BA2077B1260F95EC00E790F8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = BA2076B9260F78FA00E790F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,10 +419,12 @@
 			files = (
 				BA207794260F91E200E790F8 /* Montserrat-Regular.ttf in Resources */,
 				BA20778A260F91CA00E790F8 /* Montserrat-Bold.ttf in Resources */,
+				BA2077B9260F968D00E790F8 /* searching.json in Resources */,
+				BA2077BE260F96FB00E790F8 /* emppty.json in Resources */,
 				BA20778F260F91D800E790F8 /* Montserrat-Medium.ttf in Resources */,
 				BA207799260F91F100E790F8 /* Montserrat-SemiBold.ttf in Resources */,
 				BA2076C8260F78FD00E790F8 /* LaunchScreen.storyboard in Resources */,
-				BA20777E260F916300E790F8 /* SearchProductViewController.xib in Resources */,
+				BA20777E260F916300E790F8 /* ProductsViewController.xib in Resources */,
 				BA2076C5260F78FD00E790F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,12 +481,14 @@
 				BA207773260F89C600E790F8 /* SellerAddress.swift in Sources */,
 				BA20779F260F92AC00E790F8 /* UIFont+Extensions.swift in Sources */,
 				BA20771A260F7CF600E790F8 /* Constants.swift in Sources */,
+				BA2077D1260F9BEB00E790F8 /* String+Extension.swift in Sources */,
 				BA207729260F7E2400E790F8 /* ItemsService.swift in Sources */,
 				BA207745260F83D500E790F8 /* SearchResponse.swift in Sources */,
 				BA20771F260F7DD500E790F8 /* ApiClient.swift in Sources */,
-				BA20777D260F916300E790F8 /* SearchProductViewController.swift in Sources */,
+				BA20777D260F916300E790F8 /* ProductsViewController.swift in Sources */,
 				BA2077A7260F92FF00E790F8 /* UIView+Extensions.swift in Sources */,
 				BA207724260F7E1100E790F8 /* ProductsService.swift in Sources */,
+				BA2077C3260F976300E790F8 /* ProductsViewModel.swift in Sources */,
 				BA207740260F80B100E790F8 /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,6 +817,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA2077AB260F95C900E790F8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
+		BA2077B1260F95EC00E790F8 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA2077AC260F95C900E790F8 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA2077AB260F95C900E790F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		BA2077B2260F95EC00E790F8 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA2077B1260F95EC00E790F8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA2076B0260F78FA00E790F8 /* Project object */;
 }
