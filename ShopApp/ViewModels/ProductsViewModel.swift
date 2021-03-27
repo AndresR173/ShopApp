@@ -20,8 +20,9 @@ protocol ProductsViewModelProtocol {
     func getCollectionViewCell(from collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell
 
     var elements: Box<[Collectible]?> { get }
-
     var animation: Box<AppAnimation?> { get }
+    var elementsPerRow: CGFloat { get }
+    var sectionInsets: UIEdgeInsets { get }
 }
 
 final class ProductsViewModel: ProductsViewModelProtocol {
@@ -30,6 +31,8 @@ final class ProductsViewModel: ProductsViewModelProtocol {
 
     var elements: Box<[Collectible]?> = Box(nil)
     var animation: Box<AppAnimation?> = Box(nil)
+    var elementsPerRow: CGFloat = 2
+    var sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
     private var cancellables = Set<AnyCancellable>()
     let service: ProductsService
@@ -50,10 +53,14 @@ extension ProductsViewModel {
 
     func search(for product: String) {
 
+        elementsPerRow = 1
+        sectionInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 0, right: 20.0)
         animation.value = AppAnimation(animation: Constants.Animations.searching, message: "Searching".L)
         elements.value = nil
+
         let sOffset = String(offset)
         let sLimit = String(limit)
+
         service.searchProducts(for: product, offset: sOffset, limit: sLimit)
             .mapError { [weak self] error -> Error in
 
@@ -80,7 +87,10 @@ extension ProductsViewModel {
 
     func getCategories() {
 
+        elementsPerRow = 2
+        sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
         animation.value = nil
+
         service.getCategories()
             .mapError { [weak self] error -> Error in
 

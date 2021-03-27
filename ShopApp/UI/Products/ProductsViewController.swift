@@ -32,12 +32,10 @@ class ProductsViewController: UIViewController {
 
     let viewModel: ProductsViewModelProtocol
 
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-    private let itemsPerRow: CGFloat = 2
-
     // MARK: - Life cycle
 
     init(viewModel: ProductsViewModelProtocol) {
+
         self.viewModel = viewModel
 
         super.init(nibName: String(describing: ProductsViewController.self), bundle: Bundle.main)
@@ -54,18 +52,21 @@ class ProductsViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(animated)
 
         viewModel.getCategories()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
         super.viewWillAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+
         super.viewWillDisappear(animated)
         navigationItem.hidesSearchBarWhenScrolling = true
     }
@@ -90,8 +91,14 @@ private extension ProductsViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: String(describing: CategoryCollectionViewCell.self), bundle: .main),
-                                forCellWithReuseIdentifier: String(describing: CategoryCollectionViewCell.self))
+
+        let categoryCellIdentifier = String(describing: CategoryCollectionViewCell.self)
+        collectionView.register(UINib(nibName: categoryCellIdentifier, bundle: .main),
+                                forCellWithReuseIdentifier: categoryCellIdentifier)
+
+        let productCellIdentifier = String(describing: ProductCollectionViewCell.self)
+        collectionView.register(UINib(nibName: productCellIdentifier, bundle: .main),
+                                forCellWithReuseIdentifier: productCellIdentifier)
 
         animationView.frame = animationContainer.bounds
         animationContainer.addSubview(animationView)
@@ -139,11 +146,17 @@ private extension ProductsViewController {
 
 extension ProductsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
         guard let text = searchBar.text else {
             return
         }
 
         viewModel.search(for: text)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+        viewModel.getCategories()
     }
 }
 
@@ -152,15 +165,18 @@ extension ProductsViewController: UISearchBarDelegate {
 extension ProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+
         return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return viewModel.elements.value?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         return viewModel.getCollectionViewCell(from: collectionView, for: indexPath)
     }
 }
@@ -170,27 +186,26 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
 extension ProductsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath
-      ) -> CGSize {
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let paddingSpace = viewModel.sectionInsets.left * (viewModel.elementsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
+        let widthPerItem = availableWidth / viewModel.elementsPerRow
 
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: viewModel.elementsPerRow == 1 ? 100 : widthPerItem)
       }
 
       func collectionView(_ collectionView: UICollectionView,
                           layout collectionViewLayout: UICollectionViewLayout,
-                          insetForSectionAt section: Int
-      ) -> UIEdgeInsets {
-        return sectionInsets
+                          insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return viewModel.sectionInsets
       }
 
       func collectionView(_ collectionView: UICollectionView,
                           layout collectionViewLayout: UICollectionViewLayout,
-                          minimumLineSpacingForSectionAt section: Int
-      ) -> CGFloat {
-        return sectionInsets.left
+                          minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+        return viewModel.sectionInsets.left
       }
 }

@@ -48,6 +48,8 @@
 		BA2077FD260FC1C900E790F8 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2077FB260FC1C900E790F8 /* CategoryCollectionViewCell.xib */; };
 		BA207807260FCF2000E790F8 /* AppAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207806260FCF2000E790F8 /* AppAnimation.swift */; };
 		BA9EB117260FD45700D45A7A /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = BA9EB116260FD45700D45A7A /* error.json */; };
+		BA9EB11D260FDF2200D45A7A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9EB11B260FDF2200D45A7A /* ProductCollectionViewCell.swift */; };
+		BA9EB11E260FDF2200D45A7A /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA9EB11C260FDF2200D45A7A /* ProductCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		BA2077FB260FC1C900E790F8 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		BA207806260FCF2000E790F8 /* AppAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAnimation.swift; sourceTree = "<group>"; };
 		BA9EB116260FD45700D45A7A /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error.json; sourceTree = "<group>"; };
+		BA9EB11B260FDF2200D45A7A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA9EB11C260FDF2200D45A7A /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +213,7 @@
 		BA2076F8260F799300E790F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BA20777A260F913A00E790F8 /* SearchProducts */,
+				BA20777A260F913A00E790F8 /* Products */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -286,15 +290,17 @@
 			path = ModelTests;
 			sourceTree = "<group>";
 		};
-		BA20777A260F913A00E790F8 /* SearchProducts */ = {
+		BA20777A260F913A00E790F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				BA20777B260F916300E790F8 /* ProductsViewController.swift */,
 				BA20777C260F916300E790F8 /* ProductsViewController.xib */,
 				BA2077FA260FC1C900E790F8 /* CategoryCollectionViewCell.swift */,
 				BA2077FB260FC1C900E790F8 /* CategoryCollectionViewCell.xib */,
+				BA9EB11B260FDF2200D45A7A /* ProductCollectionViewCell.swift */,
+				BA9EB11C260FDF2200D45A7A /* ProductCollectionViewCell.xib */,
 			);
-			path = SearchProducts;
+			path = Products;
 			sourceTree = "<group>";
 		};
 		BA207788260F91C000E790F8 /* Fonts */ = {
@@ -443,6 +449,7 @@
 			files = (
 				BA207794260F91E200E790F8 /* Montserrat-Regular.ttf in Resources */,
 				BA20778A260F91CA00E790F8 /* Montserrat-Bold.ttf in Resources */,
+				BA9EB11E260FDF2200D45A7A /* ProductCollectionViewCell.xib in Resources */,
 				BA2077B9260F968D00E790F8 /* searching.json in Resources */,
 				BA2077BE260F96FB00E790F8 /* empty.json in Resources */,
 				BA20778F260F91D800E790F8 /* Montserrat-Medium.ttf in Resources */,
@@ -509,6 +516,7 @@
 				BA207773260F89C600E790F8 /* SellerAddress.swift in Sources */,
 				BA20779F260F92AC00E790F8 /* UIFont+Extensions.swift in Sources */,
 				BA2077FC260FC1C900E790F8 /* CategoryCollectionViewCell.swift in Sources */,
+				BA9EB11D260FDF2200D45A7A /* ProductCollectionViewCell.swift in Sources */,
 				BA2077D6260FA51400E790F8 /* UIColor+Extensions.swift in Sources */,
 				BA2077E0260FA83000E790F8 /* Box.swift in Sources */,
 				BA20771A260F7CF600E790F8 /* Constants.swift in Sources */,
