@@ -5,9 +5,10 @@
 //  Created by Andres Felipe Rojas R. on 27/03/21.
 //
 
-import Foundation
+import UIKit
 
-struct Product: Codable {
+struct Product: Codable, Collectible {
+
     let id: String
     let title: String
     let price: Double
@@ -24,5 +25,10 @@ struct Product: Codable {
         case condition
         case thumbnail
         case acceptsMercadopago = "accepts_mercadopago"
+    }
+
+    func getCollectionCell() -> UICollectionViewCell {
+
+        return UICollectionViewCell()
     }
 }

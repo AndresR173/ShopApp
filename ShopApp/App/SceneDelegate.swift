@@ -20,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: ProductsViewController())
-        window?.rootViewController?.view.backgroundColor = .white
+
+        let viewModel = ProductsViewModel(service: ProductServiceClient())
+        let viewController = ProductsViewController(viewModel: viewModel)
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
 
         window?.makeKeyAndVisible()
     }

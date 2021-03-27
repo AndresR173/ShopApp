@@ -11,11 +11,13 @@ import Combine
 struct APIClient {
 
     struct Response<T> {
+
         let value: T
         let response: URLResponse
     }
 
     func run<T: Decodable>(_ request: URLRequest) -> AnyPublisher<Response<T>, Error> {
+
         return URLSession.shared
             .dataTaskPublisher(for: request)
             .tryMap { result -> Response<T> in
@@ -29,6 +31,7 @@ struct APIClient {
 }
 
 enum NetworkError: Error {
+
     case serverError
     case badContent
     case badRequest

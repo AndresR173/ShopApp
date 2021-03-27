@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsViewController" customModule="ShopApp" customModuleProvider="target">
             <connections>
+                <outlet property="animationContainer" destination="BIm-H0-Qdy" id="bb0-TE-yMB"/>
+                <outlet property="collectionView" destination="9kY-CO-fit" id="zMt-ng-Jyg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +20,36 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9kY-CO-fit">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="30c-tf-JDy">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIm-H0-Qdy">
+                    <rect key="frame" x="30" y="271" width="354" height="354"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BIm-H0-Qdy" secondAttribute="height" id="ir8-7v-Rti"/>
+                    </constraints>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="9kY-CO-fit" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L4W-FS-bg8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9kY-CO-fit" secondAttribute="bottom" id="VdP-02-VhF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9kY-CO-fit" secondAttribute="trailing" id="VqW-ZB-zkj"/>
+                <constraint firstItem="9kY-CO-fit" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aKc-ER-JJw"/>
+                <constraint firstItem="BIm-H0-Qdy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nik-ZP-hbi"/>
+                <constraint firstItem="BIm-H0-Qdy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="rHK-bF-yDS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BIm-H0-Qdy" secondAttribute="trailing" constant="30" id="zot-dC-wXK"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="54"/>
         </view>
     </objects>

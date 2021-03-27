@@ -9,17 +9,23 @@ import Foundation
 import Combine
 
 protocol ProductsService {
-    func searchProductsFor(key: String, offset: String, limit: String) -> AnyPublisher<SearchResponse<Product>, Error>
+    func searchProducts(for key: String,
+                        offset: String,
+                        limit: String) -> AnyPublisher<SearchResponse<Product>, Error>
+    func getCategories() -> AnyPublisher<[Category], Error>
 }
 
 final class ProductServiceClient: ProductsService {
 
     // MARK: - Properties
+
     private let apiClient = APIClient()
 
     // MARK: - Methods
 
-    func searchProductsFor(key: String, offset: String, limit: String) -> AnyPublisher<SearchResponse<Product>, Error> {
+    func searchProducts(for key: String,
+                        offset: String,
+                        limit: String) -> AnyPublisher<SearchResponse<Product>, Error> {
 
         var urlComponents = Constants.Api.getBaseURLComponents()
         urlComponents.path = Constants.Api.Paths.products
@@ -29,6 +35,22 @@ final class ProductServiceClient: ProductsService {
             URLQueryItem(name: "offset", value: offset),
             URLQueryItem(name: "limit", value: limit)
         ]
+
+        guard let url = urlComponents.url else {
+            return Fail(error: NetworkError.badRequest).eraseToAnyPublisher()
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        return apiClient.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
+
+    func getCategories() -> AnyPublisher<[Category], Error> {
+
+        var urlComponents = Constants.Api.getBaseURLComponents()
+        urlComponents.path = Constants.Api.Paths.categories
 
         guard let url = urlComponents.url else {
             return Fail(error: NetworkError.badRequest).eraseToAnyPublisher()
