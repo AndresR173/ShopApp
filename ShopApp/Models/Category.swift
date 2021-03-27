@@ -12,8 +12,17 @@ struct Category: Codable, Collectible {
     let id: String
     let name: String
 
-    func getCollectionCell() -> UICollectionViewCell {
+    func getCollectionCell(from collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell? {
 
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: String(describing: CategoryCollectionViewCell.self),
+                for: indexPath) as? CategoryCollectionViewCell else {
+
+            return nil
+        }
+
+        cell.category = self
+
+        return cell
     }
 }

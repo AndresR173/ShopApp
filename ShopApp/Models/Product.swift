@@ -27,7 +27,7 @@ struct Product: Codable, Collectible {
         case acceptsMercadopago = "accepts_mercadopago"
     }
 
-    func getCollectionCell() -> UICollectionViewCell {
+    func getCollectionCell(from collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell? {
 
         return UICollectionViewCell()
     }

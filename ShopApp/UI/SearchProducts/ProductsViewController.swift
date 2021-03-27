@@ -14,6 +14,7 @@ class ProductsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var animationContainer: UIView!
+    @IBOutlet weak var errorMessageLabel: UILabel!
 
     // MARK: - Properties
 
@@ -30,6 +31,9 @@ class ProductsViewController: UIViewController {
     private lazy var animationView = AnimationView()
 
     let viewModel: ProductsViewModelProtocol
+
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRow: CGFloat = 2
 
     // MARK: - Life cycle
 
@@ -86,9 +90,48 @@ private extension ProductsViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(UINib(nibName: String(describing: CategoryCollectionViewCell.self), bundle: .main),
+                                forCellWithReuseIdentifier: String(describing: CategoryCollectionViewCell.self))
 
         animationView.frame = animationContainer.bounds
         animationContainer.addSubview(animationView)
+
+        setupBindings()
+    }
+
+    func setupBindings() {
+
+        viewModel.elements.bind { [weak self] elements in
+
+            if elements == nil {
+
+                self?.collectionView.fadeOut()
+            } else {
+
+                self?.collectionView.reloadData()
+                self?.collectionView.fadeIn()
+            }
+        }
+
+        viewModel.animation.bind {[weak self] animation in
+
+            if let animation = animation {
+
+                self?.animationView.animation = Animation.named(animation.animation)
+                self?.animationView.loopMode = .loop
+                self?.animationView.play()
+                self?.animationContainer.fadeIn()
+
+                self?.errorMessageLabel.text = animation.message
+                self?.errorMessageLabel.fadeIn()
+            } else {
+
+                self?.animationView.stop()
+                self?.animationContainer.fadeOut()
+                self?.errorMessageLabel.fadeOut()
+            }
+        }
+
     }
 }
 
@@ -96,8 +139,11 @@ private extension ProductsViewController {
 
 extension ProductsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let text = searchBar.text
-        dump(text)
+        guard let text = searchBar.text else {
+            return
+        }
+
+        viewModel.search(for: text)
     }
 }
 
@@ -110,11 +156,41 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.elements.value?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        return viewModel.getCollectionViewCell(from: collectionView, for: indexPath)
     }
+}
+
+// MARK: - Protocol implementation (UICollectionViewDelegateFlowLayout)
+
+extension ProductsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath
+      ) -> CGSize {
+
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+
+        return CGSize(width: widthPerItem, height: widthPerItem)
+      }
+
+      func collectionView(_ collectionView: UICollectionView,
+                          layout collectionViewLayout: UICollectionViewLayout,
+                          insetForSectionAt section: Int
+      ) -> UIEdgeInsets {
+        return sectionInsets
+      }
+
+      func collectionView(_ collectionView: UICollectionView,
+                          layout collectionViewLayout: UICollectionViewLayout,
+                          minimumLineSpacingForSectionAt section: Int
+      ) -> CGFloat {
+        return sectionInsets.left
+      }
 }

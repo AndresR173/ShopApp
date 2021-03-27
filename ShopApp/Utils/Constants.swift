@@ -31,12 +31,18 @@ struct Constants {
 
     struct Colors {
         static let pastelColors = [
-            UIColor(named: "BilobaFlower"),
-            UIColor(named: "CreamBrulee"),
-            UIColor(named: "Deco"),
-            UIColor(named: "LavenderPink"),
-            UIColor(named: "Malibu"),
-            UIColor(named: "Melon")
+            UIColor(named: "BilobaFlower") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            UIColor(named: "CreamBrulee") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            UIColor(named: "Deco") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            UIColor(named: "LavenderPink") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            UIColor(named: "Malibu") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            UIColor(named: "Melon") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         ]
+    }
+
+    struct Animations {
+        static let error = "error"
+        static let empty = "empty"
+        static let searching = "searching"
     }
 }
