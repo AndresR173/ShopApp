@@ -24,7 +24,7 @@ protocol ProductsViewModelProtocol {
 
     var elements: Box<[Collectible]?> { get }
     var animation: Box<AppAnimation?> { get }
-    var currentCategory: Box<Category?> { get }
+    var currentCategory: Box<ProductCategory?> { get }
     var productDetail: Box<UIViewController?> { get }
     var newElementsLoaded: Bool { get }
     var isShowingCategories: Bool { get }
@@ -38,7 +38,7 @@ final class ProductsViewModel: ProductsViewModelProtocol {
 
     var elements: Box<[Collectible]?> = Box(nil)
     var animation: Box<AppAnimation?> = Box(nil)
-    var currentCategory: Box<Category?> = Box(nil)
+    var currentCategory: Box<ProductCategory?> = Box(nil)
     var productDetail: Box<UIViewController?> = Box(nil)
     var newElementsLoaded = false
     var isShowingCategories: Bool = true
@@ -149,7 +149,7 @@ extension ProductsViewModel {
     }
 
     func didSelectItem(at indexPath: IndexPath) {
-        if let category = elements.value?[indexPath.row] as? Category {
+        if let category = elements.value?[indexPath.row] as? ProductCategory {
 
             offset = 0
             currentCategory.value = category

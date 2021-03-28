@@ -16,7 +16,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
 
-    var category: Category? {
+    var category: ProductCategory? {
         didSet {
             setupUI()
         }

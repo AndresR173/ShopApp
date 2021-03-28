@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Category: Codable, Collectible {
+struct ProductCategory: Codable, Collectible {
 
     let id: String
     let name: String

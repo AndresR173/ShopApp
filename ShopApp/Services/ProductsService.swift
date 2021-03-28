@@ -12,7 +12,7 @@ protocol ProductsService {
     func searchProducts(for key: String,
                         offset: String,
                         limit: String) -> AnyPublisher<SearchResponse<Product>, Error>
-    func getCategories() -> AnyPublisher<[Category], Error>
+    func getCategories() -> AnyPublisher<[ProductCategory], Error>
     func searchProductsByCategory(_ category: String,
                                   offset: String,
                                   limit: String) -> AnyPublisher<SearchResponse<Product>, Error>
@@ -50,7 +50,7 @@ final class ProductServiceClient: ProductsService {
             .eraseToAnyPublisher()
     }
 
-    func getCategories() -> AnyPublisher<[Category], Error> {
+    func getCategories() -> AnyPublisher<[ProductCategory], Error> {
 
         var urlComponents = Constants.Api.getBaseURLComponents()
         urlComponents.path = Constants.Api.Paths.categories
