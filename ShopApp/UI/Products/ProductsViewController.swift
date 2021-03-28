@@ -139,6 +139,29 @@ private extension ProductsViewController {
             }
         }
 
+        viewModel.currentCategory.bind {[weak self] category in
+
+            guard let strongSelf = self else {
+                return
+            }
+
+            if category != nil {
+
+                let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                   target: self,
+                                                   action: #selector(strongSelf.cancelCategorySearch))
+                strongSelf.navigationItem.rightBarButtonItem = cancelButton
+            } else {
+
+                strongSelf.navigationItem.rightBarButtonItem = nil
+            }
+        }
+
+    }
+
+    @objc func cancelCategorySearch() {
+
+        viewModel.cancelCategorySearch()
     }
 }
 
@@ -179,6 +202,10 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
 
         return viewModel.getCollectionViewCell(from: collectionView, for: indexPath)
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath)
+    }
 }
 
 // MARK: - Protocol implementation (UICollectionViewDelegateFlowLayout)
@@ -193,19 +220,19 @@ extension ProductsViewController: UICollectionViewDelegateFlowLayout {
         let widthPerItem = availableWidth / viewModel.elementsPerRow
 
         return CGSize(width: widthPerItem, height: viewModel.elementsPerRow == 1 ? 100 : widthPerItem)
-      }
+    }
 
-      func collectionView(_ collectionView: UICollectionView,
-                          layout collectionViewLayout: UICollectionViewLayout,
-                          insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
 
         return viewModel.sectionInsets
-      }
+    }
 
-      func collectionView(_ collectionView: UICollectionView,
-                          layout collectionViewLayout: UICollectionViewLayout,
-                          minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
         return viewModel.sectionInsets.left
-      }
+    }
 }
