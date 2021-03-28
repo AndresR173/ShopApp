@@ -27,6 +27,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-gG-FXg">
+                    <rect key="frame" x="57" y="290" width="300" height="316"/>
+                    <subviews>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIm-H0-Qdy">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="BIm-H0-Qdy" secondAttribute="height" id="ir8-7v-Rti"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8c-y4-VGo">
+                            <rect key="frame" x="0.0" y="316" width="300" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="4dF-hR-vaz"/>
+                    </constraints>
+                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kY-CO-fit">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,33 +58,16 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIm-H0-Qdy">
-                    <rect key="frame" x="30" y="271" width="354" height="354"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="BIm-H0-Qdy" secondAttribute="height" id="ir8-7v-Rti"/>
-                    </constraints>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8c-y4-VGo">
-                    <rect key="frame" x="24" y="641" width="366" height="0.0"/>
-                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f8c-y4-VGo" secondAttribute="trailing" constant="24" id="6jx-1n-z0o"/>
-                <constraint firstItem="f8c-y4-VGo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7Xi-sF-6lE"/>
                 <constraint firstItem="9kY-CO-fit" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L4W-FS-bg8"/>
+                <constraint firstItem="sUr-gG-FXg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="R57-mb-Jtu"/>
+                <constraint firstItem="sUr-gG-FXg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ShI-ky-XVb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9kY-CO-fit" secondAttribute="bottom" id="VdP-02-VhF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9kY-CO-fit" secondAttribute="trailing" id="VqW-ZB-zkj"/>
                 <constraint firstItem="9kY-CO-fit" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aKc-ER-JJw"/>
-                <constraint firstItem="f8c-y4-VGo" firstAttribute="top" secondItem="BIm-H0-Qdy" secondAttribute="bottom" constant="16" id="dU1-Wn-RcA"/>
-                <constraint firstItem="BIm-H0-Qdy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nik-ZP-hbi"/>
-                <constraint firstItem="BIm-H0-Qdy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="rHK-bF-yDS"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BIm-H0-Qdy" secondAttribute="trailing" constant="30" id="zot-dC-wXK"/>
             </constraints>
             <point key="canvasLocation" x="132" y="54"/>
         </view>

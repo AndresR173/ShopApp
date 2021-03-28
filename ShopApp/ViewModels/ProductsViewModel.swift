@@ -27,7 +27,7 @@ protocol ProductsViewModelProtocol {
     var currentCategory: Box<Category?> { get }
     var productDetail: Box<UIViewController?> { get }
     var newElementsLoaded: Bool { get }
-    var elementsPerRow: CGFloat { get }
+    var isShowingCategories: Bool { get }
     var sectionInsets: UIEdgeInsets { get }
     var isLoadingMoreElements: Bool { get }
 }
@@ -41,7 +41,7 @@ final class ProductsViewModel: ProductsViewModelProtocol {
     var currentCategory: Box<Category?> = Box(nil)
     var productDetail: Box<UIViewController?> = Box(nil)
     var newElementsLoaded = false
-    var elementsPerRow: CGFloat = 2
+    var isShowingCategories: Bool = true
     var sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     var isLoadingMoreElements: Bool = false
 
@@ -69,7 +69,7 @@ extension ProductsViewModel {
         currentKey = key
         animation.value = AppAnimation(animation: Constants.Animations.searching, message: "Searching".L)
         elements.value = nil
-        elementsPerRow = 1
+        isShowingCategories = false
         sectionInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 0, right: 20.0)
 
         let sOffset = String(offset)
@@ -110,7 +110,7 @@ extension ProductsViewModel {
 
     func getCategories() {
 
-        elementsPerRow = 2
+        isShowingCategories = true
         currentKey = nil
         sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
         currentCategory.value = nil
@@ -169,7 +169,7 @@ extension ProductsViewModel {
         }
 
         elements.value = nil
-        elementsPerRow = 1
+        isShowingCategories = false
         sectionInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 0, right: 20.0)
         animation.value = AppAnimation(animation: Constants.Animations.searching, message: "Searching".L)
         let sOffset = String(offset)

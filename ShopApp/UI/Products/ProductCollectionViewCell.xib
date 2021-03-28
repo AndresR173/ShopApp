@@ -36,19 +36,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N6-kn-cNh">
-                                <rect key="frame" x="84" y="8" width="25.5" height="15"/>
+                                <rect key="frame" x="84" y="8" width="240" height="15"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="$ 000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-F1-GUA">
-                                <rect key="frame" x="84" y="31" width="78.5" height="20"/>
+                                <rect key="frame" x="84" y="31" width="240" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqy-Q3-Wdp">
-                                <rect key="frame" x="84" y="61" width="23.5" height="15"/>
+                                <rect key="frame" x="84" y="61" width="240" height="15"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -57,9 +57,12 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="2N6-kn-cNh" firstAttribute="leading" secondItem="roQ-N7-EQH" secondAttribute="trailing" constant="8" id="1dM-Su-YYF"/>
+                            <constraint firstAttribute="trailing" secondItem="sqy-Q3-Wdp" secondAttribute="trailing" constant="8" id="1mY-oo-loW"/>
                             <constraint firstItem="sqy-Q3-Wdp" firstAttribute="leading" secondItem="roQ-N7-EQH" secondAttribute="trailing" constant="8" id="MhG-3Z-fnV"/>
                             <constraint firstItem="L2Q-F1-GUA" firstAttribute="top" secondItem="2N6-kn-cNh" secondAttribute="bottom" constant="8" id="RKz-Cu-fti"/>
                             <constraint firstItem="roQ-N7-EQH" firstAttribute="leading" secondItem="ivr-vu-m1o" secondAttribute="leading" constant="8" id="ZuW-xj-tti"/>
+                            <constraint firstAttribute="trailing" secondItem="2N6-kn-cNh" secondAttribute="trailing" constant="8" id="cx7-NN-w2b"/>
+                            <constraint firstAttribute="trailing" secondItem="L2Q-F1-GUA" secondAttribute="trailing" constant="8" id="exR-uz-Cbq"/>
                             <constraint firstAttribute="bottom" secondItem="roQ-N7-EQH" secondAttribute="bottom" constant="8" id="iGE-nO-Hed"/>
                             <constraint firstAttribute="bottom" secondItem="sqy-Q3-Wdp" secondAttribute="bottom" constant="8" id="is2-QP-anm"/>
                             <constraint firstItem="2N6-kn-cNh" firstAttribute="top" secondItem="ivr-vu-m1o" secondAttribute="top" constant="8" id="m0O-WQ-Fcw"/>

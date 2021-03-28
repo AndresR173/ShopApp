@@ -66,6 +66,11 @@ class ProductsViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = true
     }
 
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.reloadData()
+    }
+
 }
 
 // MARK: - Helper methods
@@ -247,11 +252,19 @@ extension ProductsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let paddingSpace = viewModel.sectionInsets.left * (viewModel.elementsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / viewModel.elementsPerRow
+        if !viewModel.isShowingCategories {
+            let paddingSpace = viewModel.sectionInsets.left * 3
+            let availableWidth = collectionView.frame.width - paddingSpace
 
-        return CGSize(width: widthPerItem, height: viewModel.elementsPerRow == 1 ? 100 : widthPerItem)
+            var columns: CGFloat = 1
+            if UIDevice.current.orientation.isLandscape {
+                columns = 2
+            }
+
+            return CGSize(width: availableWidth / columns, height: 100)
+        }
+
+        return CGSize(width: 150, height: 150)
     }
 
     func collectionView(_ collectionView: UICollectionView,
