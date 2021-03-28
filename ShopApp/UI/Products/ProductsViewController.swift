@@ -116,7 +116,15 @@ private extension ProductsViewController {
             } else {
 
                 self?.collectionView.reloadData()
+
+                guard !(self?.viewModel.newElementsLoaded ?? false) else {
+                    return
+                }
+
                 self?.collectionView.fadeIn()
+                self?.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                                  at: .top,
+                                                  animated: true)
             }
         }
 
@@ -205,6 +213,21 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.didSelectItem(at: indexPath)
+    }
+
+    // Prefect data from api
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+
+        guard let elements = viewModel.elements.value as? [Product] else {
+            return
+        }
+
+        if indexPath.row == elements.count - 3 && !viewModel.isLoadingMoreElements {
+
+            viewModel.loadMore()
+        }
     }
 }
 

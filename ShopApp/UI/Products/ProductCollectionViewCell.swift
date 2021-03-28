@@ -44,6 +44,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
+        numberFormatter.usesSignificantDigits = false
         let formattedNumber = numberFormatter.string(from: NSNumber(value: product.price))
         priceLabel.text = formattedNumber
 
