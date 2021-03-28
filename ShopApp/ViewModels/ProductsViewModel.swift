@@ -25,6 +25,7 @@ protocol ProductsViewModelProtocol {
     var elements: Box<[Collectible]?> { get }
     var animation: Box<AppAnimation?> { get }
     var currentCategory: Box<Category?> { get }
+    var productDetail: Box<UIViewController?> { get }
     var newElementsLoaded: Bool { get }
     var elementsPerRow: CGFloat { get }
     var sectionInsets: UIEdgeInsets { get }
@@ -38,6 +39,7 @@ final class ProductsViewModel: ProductsViewModelProtocol {
     var elements: Box<[Collectible]?> = Box(nil)
     var animation: Box<AppAnimation?> = Box(nil)
     var currentCategory: Box<Category?> = Box(nil)
+    var productDetail: Box<UIViewController?> = Box(nil)
     var newElementsLoaded = false
     var elementsPerRow: CGFloat = 2
     var sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -63,6 +65,7 @@ extension ProductsViewModel {
 
     func search(for key: String) {
 
+        offset = 0
         currentKey = key
         animation.value = AppAnimation(animation: Constants.Animations.searching, message: "Searching".L)
         elements.value = nil
@@ -153,6 +156,9 @@ extension ProductsViewModel {
             getProductsByCategory()
         } else if let product = elements.value?[indexPath.row] as? Product {
 
+            let viewModel = ProductDetailViewModel(productId: product.id, service: ItemsServiceClient())
+            let viewController = ProductDetailViewController(viewModel: viewModel)
+            productDetail.value = viewController
         }
     }
 
@@ -272,6 +278,7 @@ extension ProductsViewModel {
 
     @objc func cancelCategorySearch() {
 
+        offset = 0
         newElementsLoaded = false
         currentCategory.value = nil
         getCategories()

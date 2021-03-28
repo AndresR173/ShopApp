@@ -49,11 +49,6 @@ class ProductsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-
-        super.viewDidAppear(animated)
 
         viewModel.getCategories()
     }
@@ -62,7 +57,7 @@ class ProductsViewController: UIViewController {
 
         super.viewWillAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = false
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,10 +82,15 @@ private extension ProductsViewController {
         ]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationItem.searchController = searchController
+        navigationController?.navigationBar.prefersLargeTitles = true
         definesPresentationContext = true
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInsetAdjustmentBehavior = .always
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInsetReference = .fromSafeArea
+        collectionView.collectionViewLayout = flowLayout
 
         let categoryCellIdentifier = String(describing: CategoryCollectionViewCell.self)
         collectionView.register(UINib(nibName: categoryCellIdentifier, bundle: .main),
@@ -163,6 +163,15 @@ private extension ProductsViewController {
 
                 strongSelf.navigationItem.rightBarButtonItem = nil
             }
+        }
+
+        viewModel.productDetail.bind {[weak self] viewController in
+
+            guard let viewController = viewController else {
+                return
+            }
+
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
 
     }

@@ -20,6 +20,26 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>mlstatic.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -50,6 +70,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -58,25 +79,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Montserrat-Bold.ttf</string>
-		<string>Montserrat-Medium.ttf</string>
-		<string>Montserrat-Regular.ttf</string>
-		<string>Montserrat-SemiBold.ttf</string>
-	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>mlstatic.com</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict>
 </dict>
 </plist>
