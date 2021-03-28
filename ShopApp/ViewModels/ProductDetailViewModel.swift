@@ -14,6 +14,7 @@ protocol ProductDetailViewModelProtocol {
     var gallery: Box<[Picture]?> { get }
     var title: Box<String?> { get }
     var details: Box<String?> { get }
+    var price: Box<String?> { get }
 }
 
 final class ProductDetailViewModel: ProductDetailViewModelProtocol {
@@ -25,6 +26,7 @@ final class ProductDetailViewModel: ProductDetailViewModelProtocol {
     var gallery: Box<[Picture]?> = Box(nil)
     var title: Box<String?> = Box(nil)
     var details: Box<String?> = Box(nil)
+    var price: Box<String?> = Box(nil)
 
     private var cancellables = Set<AnyCancellable>()
     private let productId: String
@@ -83,6 +85,8 @@ private extension ProductDetailViewModel {
         animation.value = nil
         gallery.value = item.pictures
         title.value = item.title
+        price.value = item.price.asCurrency
+
         service.getItemDescription(productId)
             .compactMap { $0 }
             .sink(receiveCompletion: { _ in },

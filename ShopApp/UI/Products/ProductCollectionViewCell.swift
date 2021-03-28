@@ -42,11 +42,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
         titleLabel.text = product.title
 
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .currency
-        numberFormatter.usesSignificantDigits = false
-        let formattedNumber = numberFormatter.string(from: NSNumber(value: product.price))
-        priceLabel.text = formattedNumber
+        priceLabel.text = product.price.asCurrency
 
         cityLabel.text = product.address.cityName
     }

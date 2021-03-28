@@ -6,28 +6,15 @@
 //
 
 import SDWebImage
+import ImageSlideshow
+import ImageSlideshowSDWebImage
 import UIKit
 
 class GalleryTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    private lazy var collectionView: UICollectionView = {
-
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.8)
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.scrollDirection = .horizontal
-
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.isPagingEnabled = true
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = true
-
-        return collectionView
-    }()
+    private lazy var slideShow = ImageSlideshow().with {_ in }
 
     var gallery: [Picture]? {
         didSet {
@@ -60,9 +47,7 @@ private extension GalleryTableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
 
-        collectionView.register(GalleryImageCollectionViewCell.self,
-                                forCellWithReuseIdentifier: String(describing: GalleryImageCollectionViewCell.self))
-        contentView.addSubview(collectionView)
+        contentView.addSubview(slideShow)
 
         setupConstraints()
     }
@@ -71,105 +56,26 @@ private extension GalleryTableViewCell {
 
         NSLayoutConstraint.activate([
 
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
+            slideShow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            slideShow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            slideShow.topAnchor.constraint(equalTo: contentView.topAnchor),
+            slideShow.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
      }
 
     func showGallery() {
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.reloadData()
-    }
-}
-
-// MARK: - Protocol implementation (UICollectionViewDataSource)
-
-extension GalleryTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gallery?.count ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: String(describing: GalleryImageCollectionViewCell.self),
-                for: indexPath) as? GalleryImageCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-
-        cell.picture = gallery?[indexPath.row]
-
-        return cell
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
-        guard let count = gallery?.count else {
+        guard let gallery = gallery else {
             return
         }
 
-        let pageFloat = (scrollView.contentOffset.x / scrollView.frame.size.width)
-        let pageInt = Int(round(pageFloat))
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = .systemGray
+        pageIndicator.pageIndicatorTintColor = .systemGray2
+        slideShow.pageIndicator = pageIndicator
 
-        switch pageInt {
-        case 0:
-            collectionView.scrollToItem(at: [0, count], at: .left, animated: false)
-        case count - 1:
-            collectionView.scrollToItem(at: [0, 1], at: .left, animated: false)
-        default:
-            break
-        }
-    }
-}
+        let images = gallery.compactMap { URL(string: $0.secureUrl) }.map { SDWebImageSource(url: $0) }
+        slideShow.setImageInputs(images)
 
-class GalleryImageCollectionViewCell: UICollectionViewCell {
-
-    // MARK: - Properties
-
-    private lazy var imageView = UIImageView()
-        .with { image in
-
-            image.contentMode = .scaleAspectFill
-        }
-
-    var picture: Picture? {
-        didSet {
-
-            guard let picture = picture else {
-                return
-            }
-
-            imageView.sd_setImage(with: URL(string: picture.secureUrl),
-                                  placeholderImage: UIImage(named: "placeholder"),
-                                  options: .progressiveLoad,
-                                  context: nil)
-        }
-    }
-
-    // MARK: - Life cycle
-
-    override init(frame: CGRect) {
-
-        super.init(frame: frame)
-
-        contentView.addSubview(imageView)
-
-        NSLayoutConstraint.activate([
-
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

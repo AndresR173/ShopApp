@@ -42,6 +42,20 @@ class ProductDetailView: UIView {
             tableView.insetsContentViewsToSafeArea = false
     }
 
+    lazy var priceLabel = UILabel()
+        .with { label in
+
+            label.font = .monserrat(.semiBold, size: 18)
+        }
+
+    private lazy var priceContainer = UIView()
+        .with { view in
+            view.layer.cornerRadius = 7
+            view.backgroundColor = .systemGray6
+
+            view.addSubview(priceLabel)
+        }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -63,6 +77,7 @@ private extension ProductDetailView {
 
         addSubview(animationContainer)
         addSubview(tableView)
+        addSubview(priceContainer)
 
         setupConstraints()
     }
@@ -77,10 +92,19 @@ private extension ProductDetailView {
 
             animationView.heightAnchor.constraint(equalTo: animationContainer.widthAnchor),
 
+            priceContainer.leadingAnchor.constraint(equalTo: readableContentGuide.leadingAnchor),
+            priceContainer.trailingAnchor.constraint(equalTo: readableContentGuide.trailingAnchor),
+            priceContainer.bottomAnchor.constraint(equalTo: readableContentGuide.bottomAnchor, constant: -8),
+            priceContainer.heightAnchor.constraint(equalToConstant: 50),
+
+            priceLabel.leadingAnchor.constraint(equalTo: priceContainer.leadingAnchor, constant: 8),
+            priceLabel.trailingAnchor.constraint(equalTo: priceContainer.trailingAnchor, constant: -8),
+            priceLabel.centerYAnchor.constraint(equalTo: priceContainer.centerYAnchor),
+
             tableView.topAnchor.constraint(equalTo: readableContentGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: readableContentGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: priceContainer.topAnchor, constant: -8)
         ])
     }
 }

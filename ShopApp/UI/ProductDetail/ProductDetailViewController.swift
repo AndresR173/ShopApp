@@ -53,10 +53,13 @@ private extension ProductDetailViewController {
                                       forCellReuseIdentifier: String(describing: ProductDetailsTableViewCell.self))
         customView.tableView.dataSource = self
         customView.tableView.delegate = self
+        customView.tableView.rowHeight = UITableView.automaticDimension
+        customView.tableView.estimatedRowHeight = 100
 
         setupBindings()
     }
 
+    // swiftlint:disable:next function_body_length
     func setupBindings() {
 
         viewModel.animation.bind {[weak self] animation in
@@ -92,13 +95,22 @@ private extension ProductDetailViewController {
                 cell.gallery = gallery
             }
 
+            row.height = {[weak self] _ in
+
+                if UIDevice.current.orientation.isLandscape {
+
+                    return (self?.view.frame.width ?? 0) * 0.3
+                }
+                return (self?.view.frame.width ?? 0) * 0.8
+            }
+
             strongSelf.tableSection.rows.insert(row, at: 0)
             strongSelf.customView.tableView.reloadData()
         }
 
         viewModel.title.bind { [weak self] title in
 
-            guard let strongSelf = self else {
+            guard let strongSelf = self, let title = title else {
                 return
             }
 
@@ -136,6 +148,11 @@ private extension ProductDetailViewController {
 
             strongSelf.tableSection.rows.append(row)
             strongSelf.customView.tableView.reloadData()
+        }
+
+        viewModel.price.bind { [weak self] price in
+
+            self?.customView.priceLabel.text = price
         }
     }
 

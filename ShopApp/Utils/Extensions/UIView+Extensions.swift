@@ -29,17 +29,4 @@ extension UIView {
         }, completion: completion)
     }
 
-    func alphaCrossfade(from: UIView?,
-                        to: UIView?,
-                        duration: Double = 0.4,
-                        delay: Double = 0.0,
-                        toAlpha: Double = 1.0,
-                        completion: ((Bool) -> Void)? = nil) {
-
-        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-            from?.alpha = CGFloat(0.0)
-            to?.alpha = CGFloat(toAlpha)
-        }, completion: completion)
-    }
-
 }
