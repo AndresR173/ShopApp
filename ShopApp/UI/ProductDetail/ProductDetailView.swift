@@ -48,12 +48,24 @@ class ProductDetailView: UIView {
             label.font = .monserrat(.semiBold, size: 18)
         }
 
+    lazy var addToCartButton = UIButton(type: .custom)
+        .with { button in
+
+            button.setTitle("Add to Cart".L, for: .normal)
+            button.titleLabel?.font = .monserrat(.medium, size: 15)
+            button.backgroundColor = .systemGray3
+            button.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+
+            button.layer.cornerRadius = 20
+        }
+
     private lazy var priceContainer = UIView()
         .with { view in
             view.layer.cornerRadius = 7
             view.backgroundColor = .systemGray6
 
             view.addSubview(priceLabel)
+            view.addSubview(addToCartButton)
         }
 
     override init(frame: CGRect) {
@@ -100,6 +112,10 @@ private extension ProductDetailView {
             priceLabel.leadingAnchor.constraint(equalTo: priceContainer.leadingAnchor, constant: 8),
             priceLabel.trailingAnchor.constraint(equalTo: priceContainer.trailingAnchor, constant: -8),
             priceLabel.centerYAnchor.constraint(equalTo: priceContainer.centerYAnchor),
+
+            addToCartButton.trailingAnchor.constraint(equalTo: priceContainer.trailingAnchor, constant: -8),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 40),
+            addToCartButton.centerYAnchor.constraint(equalTo: priceContainer.centerYAnchor),
 
             tableView.topAnchor.constraint(equalTo: readableContentGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
