@@ -10,6 +10,8 @@ import Foundation
 
 protocol ProductDetailViewModelProtocol {
 
+    func getItem()
+
     var animation: Box<AppAnimation?> { get }
     var gallery: Box<[Picture]?> { get }
     var title: Box<String?> { get }
@@ -40,16 +42,17 @@ final class ProductDetailViewModel: ProductDetailViewModelProtocol {
         self.productId = productId
         self.service = service
 
-        getItem()
     }
 
 }
 
 // MARK: - Helper Methods
 
-private extension ProductDetailViewModel {
+extension ProductDetailViewModel {
 
      func getItem() {
+
+        animation.value = AppAnimation(animation: Constants.Animations.searching, message: nil)
 
         service.searchItem(productId)
             .mapError {[weak self] error -> Error in
@@ -71,12 +74,13 @@ private extension ProductDetailViewModel {
                     }
 
                     strongSelf.item = item
+                    strongSelf.animation.value = nil
                     strongSelf.showProductDetails()
                   }
             ).store(in: &cancellables)
     }
 
-    func showProductDetails() {
+    private func showProductDetails() {
 
         guard let item = item else {
             return

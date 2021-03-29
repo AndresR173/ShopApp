@@ -19,15 +19,18 @@ class ItemTests: XCTestCase {
     }
 
     func testItemModel() throws {
+
         let bundle = Bundle(for: type(of: self))
         guard let url = bundle.url(forResource: "item_response", withExtension: "json") else {
             XCTFail("Could not find response json")
             return
         }
+
         guard let data = try? Data(contentsOf: url) else {
             XCTFail("Could not get data from URL")
             return
         }
+        
         let item = try? JSONDecoder().decode(Item.self, from: data)
         XCTAssertNotNil(item)
     }

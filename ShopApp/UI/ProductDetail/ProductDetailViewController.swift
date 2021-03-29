@@ -57,6 +57,8 @@ private extension ProductDetailViewController {
         customView.tableView.estimatedRowHeight = 100
 
         setupBindings()
+
+        viewModel.getItem()
     }
 
     // swiftlint:disable:next function_body_length

@@ -19,15 +19,18 @@ class CategoriesTests: XCTestCase {
     }
 
     func testCategoryModel() throws {
+
         let bundle = Bundle(for: type(of: self))
         guard let url = bundle.url(forResource: "categories_response", withExtension: "json") else {
             XCTFail("Could not find response json")
             return
         }
+
         guard let data = try? Data(contentsOf: url) else {
             XCTFail("Could not get data from URL")
             return
         }
+
         let categories = try? JSONDecoder().decode([ProductCategory].self, from: data)
         XCTAssertNotNil(categories)
     }
