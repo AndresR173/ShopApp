@@ -9,12 +9,23 @@ A simple product catalog powered by MeLi API.
 
 ## Getting Started
 
-This project uses `SwiftLint` to enforce Swift style and conventions.
+This project uses `SwiftLint` to enforce Swift style and conventions. To run this project, please use Xcode 12.4 and iOS 13.0+.
 
 ### Using [Homebrew](http://brew.sh/):
 ```
 brew install swiftlint
 ```
+
+## Project details
+
+### Architecture
+This project uses MVVM as architectural design pattern.
+
+### UI
+There is a mix of UI concepts. The main view (Categories and Product catalog) uses XIB files for the layout. The product details screen uses programmatic UI.
+## API
+This project uses [Mercado Libre public API](https://developers.mercadolibre.com.co/es_ar/usuarios-y-aplicaciones) for all HTTP requests.
+The networking is handled by [NSURLSession](https://developer.apple.com/documentation/foundation/urlsession/processing_url_session_data_task_results_with_combine) and Combine.
 
 ## Third party dependencies
 

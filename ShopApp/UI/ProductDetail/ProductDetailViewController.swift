@@ -45,6 +45,7 @@ private extension ProductDetailViewController {
 
     func setupUI() {
 
+        /// Register all the custom classes for the tableview cells
         customView.tableView.register(GalleryTableViewCell.self,
                                       forCellReuseIdentifier: String(describing: GalleryTableViewCell.self))
         customView.tableView.register(TitleTableViewCell.self,
@@ -58,6 +59,7 @@ private extension ProductDetailViewController {
 
         setupBindings()
 
+        /// Load product details
         viewModel.getItem()
     }
 
@@ -98,7 +100,7 @@ private extension ProductDetailViewController {
             }
 
             row.height = {[weak self] _ in
-
+                /// Set gallery height, the layout might change if the device is in landscape or portrait mode
                 if UIDevice.current.orientation.isLandscape {
 
                     return (self?.view.frame.width ?? 0) * 0.3
@@ -106,6 +108,7 @@ private extension ProductDetailViewController {
                 return (self?.view.frame.width ?? 0) * 0.8
             }
 
+            /// Gallery will be always the first element on the list
             strongSelf.tableSection.rows.insert(row, at: 0)
             strongSelf.customView.tableView.reloadData()
         }
@@ -158,6 +161,7 @@ private extension ProductDetailViewController {
         }
     }
 
+    /// Get TableRow at indexPath
     func rowAtIndexPath(_ indexPath: IndexPath) -> TableRow {
 
         return tableSection.rows[indexPath.row]
