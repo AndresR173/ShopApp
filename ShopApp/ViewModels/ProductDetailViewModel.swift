@@ -10,11 +10,15 @@ import Foundation
 
 protocol ProductDetailViewModelProtocol {
 
+    /// This function retrieves the item information from the API
     func getItem()
-
+    /// Notifies the loading animation
     var animation: Box<AppAnimation?> { get }
+    /// Used to load the gallery
     var gallery: Box<[Picture]?> { get }
+    /// Item title
     var title: Box<String?> { get }
+    /// Item description
     var details: Box<String?> { get }
     var price: Box<String?> { get }
 }
@@ -80,6 +84,8 @@ extension ProductDetailViewModel {
             ).store(in: &cancellables)
     }
 
+    /// By using the item ID, the app tries to fetch the product details from the API
+    /// This function uses a different endpoint
     private func showProductDetails() {
 
         guard let item = item else {
