@@ -2,8 +2,7 @@ name: Swift
 
 on:
   push:
-    branches:
-        - main
+    branches: [main]
 
 jobs:
   build:
@@ -15,4 +14,4 @@ jobs:
     - name: Run tests
       run: xcodebuild clean test -project 'ShopApp.xcodeproj' -scheme 'ShopApp' -destination "platform=iOS Simulator,name=iPhone 11,OS=latest"
     - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.2.1
+      uses: codecov/codecov-action@v1.2.1
