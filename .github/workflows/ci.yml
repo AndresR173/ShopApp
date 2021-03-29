@@ -1,0 +1,13 @@
+name: Swift
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: xcodebuild clean test -project 'ShopApp.xcodeproj' -scheme 'ShopApp' -destination "platform=iOS Simulator,name=iPhone 11,OS=latest"
