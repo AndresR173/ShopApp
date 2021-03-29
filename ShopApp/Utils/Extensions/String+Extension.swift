@@ -8,7 +8,9 @@
 import Foundation
 
 extension String {
+
     var L: String {
+
         return NSLocalizedString(self, comment: "")
     }
 }

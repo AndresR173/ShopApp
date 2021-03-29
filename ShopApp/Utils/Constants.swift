@@ -8,12 +8,15 @@
 import UIKit
 
 struct Constants {
+
     struct Api {
+
         static let host = "api.mercadolibre.com"
         static let scheme = "https"
         static let siteId = "MCO"
 
         static func getBaseURLComponents() -> URLComponents {
+
             var components = URLComponents()
             components.scheme = Constants.Api.scheme
             components.host = Constants.Api.host
@@ -23,6 +26,7 @@ struct Constants {
 
         // swiftlint:disable:next nesting
         struct Paths {
+
             static let items = "/items"
             static let products = "/sites/\(Constants.Api.siteId)/search"
             static let categories = "/sites/\(Constants.Api.siteId)/categories"
@@ -30,7 +34,9 @@ struct Constants {
     }
 
     struct Colors {
+
         static let pastelColors = [
+
             UIColor(named: "BilobaFlower") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
             UIColor(named: "CreamBrulee") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
             UIColor(named: "Deco") ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
@@ -41,6 +47,7 @@ struct Constants {
     }
 
     struct Animations {
+
         static let error = "error"
         static let empty = "empty"
         static let searching = "searching"

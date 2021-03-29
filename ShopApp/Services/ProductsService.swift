@@ -26,6 +26,13 @@ final class ProductServiceClient: ProductsService {
 
     // MARK: - Methods
 
+    /**
+        Retrieves product catalog for a keyword
+        - parameters:
+            - key: Ke word, this can be more than one word
+            - offset: Initial position (Use this parameter to the se beginning of the page)
+            - limit: The total of elements per page
+     */
     func searchProducts(for key: String,
                         offset: String,
                         limit: String) -> AnyPublisher<SearchResponse<Product>, Error> {
@@ -66,6 +73,13 @@ final class ProductServiceClient: ProductsService {
             .eraseToAnyPublisher()
     }
 
+    /**
+        Retrieves product catalog by category
+        - parameters:
+            - category: Category ID
+            - offset: Initial position (Use this parameter to the se beginning of the page)
+            - limit: The total of elements per page
+     */
     func searchProductsByCategory(_ category: String,
                                   offset: String,
                                   limit: String) -> AnyPublisher<SearchResponse<Product>, Error> {

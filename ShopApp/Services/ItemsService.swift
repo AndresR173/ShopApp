@@ -21,6 +21,11 @@ struct ItemsServiceClient: ItemsService {
 
     // MARK: - Methods
 
+    /**
+        Search specific item
+        - parameters:
+            - id: Item id
+     */
     func searchItem(_ id: String) -> AnyPublisher<Item, Error> {
 
         var urlComponents = Constants.Api.getBaseURLComponents()
@@ -37,6 +42,11 @@ struct ItemsServiceClient: ItemsService {
             .eraseToAnyPublisher()
     }
 
+    /**
+        Retrieves the description for a specific item
+        - parameters:
+            - id: Item id
+     */
     func getItemDescription(_ id: String) -> AnyPublisher<Description, Error> {
 
         var urlComponents = Constants.Api.getBaseURLComponents()

@@ -15,17 +15,33 @@ protocol Collectible {
 
 protocol ProductsViewModelProtocol {
 
+    /**
+        Search products for a specific weyword
+        - parameters:
+            - product: Keyword used to search the product catalog
+     */
     func search(for product: String)
+    /// Load category page
     func getCategories()
+    /// Retrieves the collection view cell based on the collectible element
     func getCollectionViewCell(from collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell
+    /// Let the view model know that a new element was selected.
+    ///
+    /// This function can load elements by category o display a product detail screen
     func didSelectItem(at indexPath: IndexPath)
+    /// This function hides the "Cancel" button and resets the category view
     func cancelCategorySearch()
     func loadMore()
 
+    /// List of Collectible elements (can be either ProductCategory or Product)
     var elements: Box<[Collectible]?> { get }
+    /// This struct is an animation wrapper, used to load Lottie animations
     var animation: Box<AppAnimation?> { get }
+    /// This property is used to notify the view about changes related to the category list
     var currentCategory: Box<ProductCategory?> { get }
+    /// Used to notify the view about the new View controller to be presented
     var productDetail: Box<UIViewController?> { get }
+    /// Used to notify about new pages loaded
     var newElementsLoaded: Bool { get }
     var isShowingCategories: Bool { get }
     var sectionInsets: UIEdgeInsets { get }
@@ -149,6 +165,7 @@ extension ProductsViewModel {
     }
 
     func didSelectItem(at indexPath: IndexPath) {
+
         if let category = elements.value?[indexPath.row] as? ProductCategory {
 
             offset = 0
@@ -276,7 +293,7 @@ extension ProductsViewModel {
             ).store(in: &cancellables)
     }
 
-    @objc func cancelCategorySearch() {
+    func cancelCategorySearch() {
 
         offset = 0
         newElementsLoaded = false
